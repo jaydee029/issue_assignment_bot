@@ -22,7 +22,7 @@ func main() {
 		Token:    Token,
 		Commands: val,
 	}
-
+	githubactions.Infof("hello")
 	go bot.Bot(input)
 
 }
