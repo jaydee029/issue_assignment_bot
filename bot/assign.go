@@ -1,8 +1,6 @@
 package bot
 
 import (
-	"fmt"
-
 	"github.com/sethvargo/go-githubactions"
 )
 
@@ -15,7 +13,7 @@ func Bot(input Input) {
 
 	event := githubactions.GitHubContext{}
 	if event.EventName == "issue_comment" {
-		fmt.Println("hello")
+		githubactions.Debugf("Hello")
 		//githubactions.Fatalf("This action is only supported for issue_comment event")
 	}
 	/*
