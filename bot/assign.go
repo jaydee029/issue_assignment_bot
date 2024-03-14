@@ -11,9 +11,18 @@ type Input struct {
 
 func Bot(input Input) {
 
+	event, err := githubactions.Context()
+
+	if err != nil {
+		githubactions.Errorf("trouble accessing the context")
+	}
+	switch event.EventName {
+	case "issue_comment":
+		githubactions.Infof("hello")
+	}
+
 	githubactions.Infof("Hello")
 
-	//event := githubactions.GitHubContext{}
 	//if event.EventName == "issue_comment" {
 
 	//githubactions.Fatalf("This action is only supported for issue_comment event")
