@@ -13,5 +13,5 @@ inputs:
     default: "/assign"
 
 runs:
-  using: "node16"
+  using: "node20"
   main: "invoke-binary.js"
