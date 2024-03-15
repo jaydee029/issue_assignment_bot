@@ -6,7 +6,9 @@ const VERSION = 'f6k456bd367300ec59d9ba678812c42be2570a64'
 
 function chooseBinary() {
     const platform = os.platform()
+    console.log(platform)
     const arch = os.arch()
+    console.log(arch)
 
     if (platform === 'linux' && arch === 'x64') {
         return `main-linux-amd64-${VERSION}`
@@ -27,7 +29,8 @@ function chooseBinary() {
 
 function main() {
     const binary = chooseBinary()
-    const mainScript = binary//`${__dirname}/${binary}`
+    const mainScript = `${__dirname}/${binary}`
+    console.log(mainScript)
     const spawnSyncReturns = childProcess.spawnSync(mainScript, { stdio: 'inherit' })
     const status = spawnSyncReturns.status
     if (typeof status === 'number') {
