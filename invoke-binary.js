@@ -27,7 +27,7 @@ function chooseBinary() {
 
 function main() {
     const binary = chooseBinary()
-    const mainScript = `${__dirname}/${binary}`
+    const mainScript = binary//`${__dirname}/${binary}`
     const spawnSyncReturns = childProcess.spawnSync(mainScript, { stdio: 'inherit' })
     const status = spawnSyncReturns.status
     if (typeof status === 'number') {

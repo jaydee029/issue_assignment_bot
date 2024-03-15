@@ -1,28 +1,33 @@
 package main
 
 import (
-	"github.com/jaydee029/issue_assignment_bot/bot"
 	"github.com/sethvargo/go-githubactions"
 )
 
 func main() {
+	//ctx := context.Background()
 
-	Token := githubactions.GetInput("github_token")
+	action := githubactions.New()
+
+	Token := action.GetInput("github_token")
 
 	if Token == "" {
 		githubactions.Fatalf("missing Github Token")
 	}
 
-	val := githubactions.GetInput("commands")
+	val := action.GetInput("commands")
 	if val == "" {
 		githubactions.Fatalf("missing commands")
 	}
 
-	input := bot.Input{
-		Token:    Token,
-		Commands: val,
-	}
-	githubactions.Infof("hello")
-	go bot.Bot(input)
+	action.Infof(Token, val)
+	/*
+		input := bot.Input{
+			Token:    Token,
+			Commands: val,
+		}
 
+		action.Infof("hello")
+		//go bot.Bot(input)
+	*/
 }
