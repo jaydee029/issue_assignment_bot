@@ -12,12 +12,12 @@ func main() {
 	Token := action.GetInput("github_token")
 
 	if Token == "" {
-		githubactions.Fatalf("missing Github Token")
+		action.Fatalf("missing Github Token")
 	}
 
 	val := action.GetInput("commands")
 	if val == "" {
-		githubactions.Fatalf("missing commands")
+		action.Fatalf("missing commands")
 	}
 
 	action.Infof(Token, val)
